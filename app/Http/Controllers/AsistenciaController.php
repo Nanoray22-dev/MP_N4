@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumno;
 use App\Models\Asistencia;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,10 @@ class AsistenciaController extends Controller
     public function index()
     {
         $asistencia = Asistencia::all();
-        return response()->json($asistencia);
+        $alumnos = Alumno::all();
+        // return response()->json($asistencia);
+        return view('asistencia', ['asistencias' => $asistencia, 'alumnos' => $alumnos]);
+
     }
 
     /**

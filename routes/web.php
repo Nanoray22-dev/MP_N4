@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsistenciaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/asistencias', [AsistenciaController::class,'index'] );
+
+Route::post('/registrar-asistencia', [AsistenciaController::class, 'registrarAsistencia'])->name('registrar.asistencia');
